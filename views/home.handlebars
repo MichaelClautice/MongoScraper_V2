@@ -1,0 +1,54 @@
+<!--Homepage-->
+
+{{!-- THIS IS THE {{{body}}} for main.handlebars --}}
+
+{{!-- •••••••••• START CONTAINER •••••••••••••• --}}
+<div class="container">
+
+{{!-- ••••••••••• START JUMBOTRON •••••••••••• --}}
+    <div id="topJumbotron" class="col-md-12 jumbotron">
+        <div class="text-center">
+            <h1>New York Times Mongo Scraper</h1>
+        </div>
+{{!-- ••••••••••• CLOSE JUMBOTRON •••••••••••• --}}
+    </div>
+
+{{!-- ••••••••••• START col-md-12 •••••••••••• --}}
+    <div class="col-md-12">
+
+        {{#if article}}
+            {{#each article}}
+
+{{!-- ••••••••••• START PANEL •••••••••••• --}}
+            <div class="panel panel-default">
+
+                <div id="panelHeading" class="panel-heading">
+                    <h2>{{this.title}}</h2>
+                </div>
+
+                <div class="panel-body">
+                    <p> {{this.summary}}</p>
+                    <a href={{this.link}} target="_blank">{{this.link}}</a>
+                    <br><br>
+                    <button type="button" class="btn btn-success save" data-id={{this._id}}>Save Article</button>
+                </div>
+
+{{!-- ••••••••••• CLOSE PANEL •••••••••••• --}}
+            </div>
+
+            {{/each}}
+        {{else}}
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+            <h2>Uh Oh. Looks like we don't have any new articles.</h2>
+            </div>
+         </div>
+
+
+        {{/if}}
+{{!-- ••••••••••• CLOSE col-md-12 •••••••••••• --}}
+    </div>
+{{!-- •••••••••• CLOSE CONTAINER •••••••••••••• --}}
+</div>
+
