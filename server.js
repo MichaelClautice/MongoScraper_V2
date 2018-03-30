@@ -121,7 +121,7 @@ expressApp.set("view engine", "handlebars");
 // ••••••••••••••MONGOOSE DB CONFIG
 //
 // creates mongodb schemas
-mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
+mongoose.connect(process.env.MONGOD_URI);
 
 
 
@@ -130,6 +130,12 @@ mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.
 // mongoose.connect("mongodb://localhost/mongoscraper")
 // mongoose connection is assigned to the db var
 // https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+
+
+
+
+
+
 let db = mongoose.connection;
 
 
