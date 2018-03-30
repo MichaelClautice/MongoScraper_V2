@@ -121,7 +121,7 @@ expressApp.set("view engine", "handlebars");
 // ••••••••••••••MONGOOSE DB CONFIG
 //
 // creates mongodb schemas
-mongoose.connect(process.env.MONGOD_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 
 
