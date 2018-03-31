@@ -4,7 +4,7 @@
 // routing assist
 const express = require("express");
 // http calls
-const request = require("request");
+const requestAJAX = require("request");
 // parses a str into JSON
 const bodyParser = require("body-parser");
 // logs request details
@@ -121,7 +121,7 @@ expressApp.set("view engine", "handlebars");
 // ••••••••••••••MONGOOSE DB CONFIG
 //
 // creates mongodb schemas
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mongoscraper");
 
 
 
@@ -199,7 +199,7 @@ expressApp.get("/saved", function(request, response) {
 expressApp.get("/scrape", function(request, response) {
 
 // request-grab html body from nytimes.com
-  request("https://www.nytimes.com/", function(error, response, html) {
+  requestAJAX("https://www.nytimes.com/", function(error, responseData, html) {
 
 
 // load html body into cheerio's $ for shorthand selector
